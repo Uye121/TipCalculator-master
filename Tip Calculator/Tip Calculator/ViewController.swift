@@ -64,11 +64,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func changePeople(_ sender: Any) {
-        people = Int(peopleInput.text!)!
+        people = Int(peopleInput.text!) ?? 1
         
+        // Catch nil errors
         guard let value = total else {
             return
         }
+        
         bill = Double(userInput.text!) ?? 0
         tip = bill! * (tipPercentages[tipsBar.selectedSegmentIndex])
         total = (bill! + tip!)/Double(people)
