@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		078BB3911DFA22FE00E59DF6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078BB3901DFA22FE00E59DF6 /* SettingViewController.swift */; };
 		07B139E51DF2777400DC156E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B139E41DF2777400DC156E /* AppDelegate.swift */; };
 		07B139E71DF2777400DC156E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B139E61DF2777400DC156E /* ViewController.swift */; };
 		07B139EA1DF2777400DC156E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B139E81DF2777400DC156E /* Main.storyboard */; };
@@ -35,7 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		078BB3901DFA22FE00E59DF6 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		07B139E11DF2777400DC156E /* Tip Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tip Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07B139E41DF2777400DC156E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07B139E61DF2777400DC156E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			children = (
 				07B139E41DF2777400DC156E /* AppDelegate.swift */,
 				07B139E61DF2777400DC156E /* ViewController.swift */,
-				078BB3901DFA22FE00E59DF6 /* SettingViewController.swift */,
 				07B139E81DF2777400DC156E /* Main.storyboard */,
 				07B139EB1DF2777500DC156E /* Assets.xcassets */,
 				07B139ED1DF2777500DC156E /* LaunchScreen.storyboard */,
@@ -264,7 +261,6 @@
 			files = (
 				07B139E71DF2777400DC156E /* ViewController.swift in Sources */,
 				07B139E51DF2777400DC156E /* AppDelegate.swift in Sources */,
-				078BB3911DFA22FE00E59DF6 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
