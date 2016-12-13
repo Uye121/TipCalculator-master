@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var totalPerPerson: UILabel!
 
     @IBOutlet weak var tipsBar: UISegmentedControl!
     @IBOutlet weak var userInput: UITextField!
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
     var bill: Double?
     var tip: Double?
     var total: Double?
+    var perPerson: Double?
     var people: Int = 1
     
     override func viewDidLoad() {
@@ -47,20 +49,24 @@ class ViewController: UIViewController {
         
         bill = Double(userInput.text!) ?? 0
         tip = bill! * (tipPercentages[tipsBar.selectedSegmentIndex])
-        total = (bill! + tip!)/Double(people)
+        total = bill! + tip!
+        perPerson = total! / Double(people)
         
         tipLabel.text = String(format: "$%.2f", tip!)
         totalLabel.text = String(format: "$%.2f", total!)
+        totalPerPerson.text = String(format: "$%.2f", perPerson!)
     }
     
     @IBAction func changeTip(_ sender: Any) {
         
         bill = Double(userInput.text!) ?? 0
         tip = bill! * (tipPercentages[tipsBar.selectedSegmentIndex])
-        total = (bill! + tip!)/Double(people)
+        total = bill! + tip!
+        perPerson = total! / Double(people)
         
         tipLabel.text = String(format: "$%.2f", tip!)
         totalLabel.text = String(format: "$%.2f", total!)
+        totalPerPerson.text = String(format: "$%.2f", perPerson!)
     }
     
     @IBAction func changePeople(_ sender: Any) {
@@ -73,10 +79,12 @@ class ViewController: UIViewController {
         
         bill = Double(userInput.text!) ?? 0
         tip = bill! * (tipPercentages[tipsBar.selectedSegmentIndex])
-        total = (bill! + tip!)/Double(people)
+        total = bill! + tip!
+        perPerson = total! / Double(people)
         
         tipLabel.text = String(format: "$%.2f", tip!)
         totalLabel.text = String(format: "$%.2f", total!)
+        totalPerPerson.text = String(format: "$%.2f", perPerson!)
     }
 
 }
