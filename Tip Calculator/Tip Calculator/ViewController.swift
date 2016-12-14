@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     var total: Double?
     var perPerson: Double?
     var people: Int = 1
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,20 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let view = setting else {
+            let index = Int(defaults.string(forKey: "selectedIndex")!)
+            let value = Int(defaults.string(forKey: "changeTip")!)
+            
+            tipPercentages[Int(index!)] = Double(value!)
+            tipsBar.setTitle("\(value)%", forSegmentAt: Int(index!))
+            print("\(value)%")
+            return
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,6 +114,10 @@ class ViewController: UIViewController {
         
         tipPercentages[adjustableTipsBAr.selectedSegmentIndex] = Double(tipAdjustAmount)
         adjustableTipsBAr.setTitle(String("\(tipAdjustAmount)%"), forSegmentAt: adjustableTipsBAr.selectedSegmentIndex)
+        
+        defaults.set(adjustableTipsBAr.selectedSegmentIndex, forKey: "selectedIndex")
+        defaults.set(tipAdjustAmount, forKey: "changeTip")
+        
     }
     
 }
