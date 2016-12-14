@@ -45,10 +45,10 @@ class ViewController: UIViewController {
         
         guard let view = setting else {
             let index = Int(defaults.string(forKey: "selectedIndex")!)
-            let value = Int(defaults.string(forKey: "changeTip")!)
+            let value = Double(defaults.string(forKey: "changeTip")!)!
             
-            tipPercentages[Int(index!)] = Double(value!)
-            tipsBar.setTitle("\(value)%", forSegmentAt: Int(index!))
+            tipPercentages[Int(index!)] = Double(value)/100
+            tipsBar.setTitle("\(Int(value))%", forSegmentAt: Int(index!))
             print("\(value)%")
             return
         }
