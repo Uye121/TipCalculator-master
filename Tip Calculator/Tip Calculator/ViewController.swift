@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let view = setting else {
+        guard (setting) != nil else {
             peopleInput.text = String(people)
             return
         }
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let view = setting else {
+        guard (setting) != nil else {
             let index = Int(defaults.string(forKey: "selectedIndex")!)
             let value = Double(defaults.string(forKey: "changeTip")!)!
             
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
         people = Int(peopleInput.text!) ?? 1
         
         // Catch nil errors
-        guard let value = total else {
+        guard total != nil else {
             return
         }
         
