@@ -12,10 +12,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var totalPerPerson: UILabel!
-
+    
     @IBOutlet weak var tipsBar: UISegmentedControl!
+    @IBOutlet weak var adjustableTipsBAr: UISegmentedControl!
     @IBOutlet weak var userInput: UITextField!
+    @IBOutlet weak var tipsInput: UITextField!
     @IBOutlet weak var peopleInput: UITextField!
+    @IBOutlet var setting: UIView!
     
     var tipPercentages: [Double] = [0.18, 0.20, 0.25]
     var bill: Double?
@@ -26,22 +29,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        peopleInput.text = String(people)
+        
+        guard let view = setting else {
+            peopleInput.text = String(people)
+            return
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        peopleInput.text = String(people)
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func onTapSetting(_ sender: Any) {
         view.endEditing(true)
     }
     
@@ -86,6 +93,13 @@ class ViewController: UIViewController {
         totalLabel.text = String(format: "$%.2f", total!)
         totalPerPerson.text = String(format: "$%.2f", perPerson!)
     }
-
+    
+    @IBAction func tapSetTips(_ sender: Any) {
+        let tipAdjustAmount = Int(tipsInput.text!) ?? 0
+        
+        tipPercentages[adjustableTipsBAr.selectedSegmentIndex] = Double(tipAdjustAmount)
+        adjustableTipsBAr.setTitle(String("\(tipAdjustAmount)%"), forSegmentAt: adjustableTipsBAr.selectedSegmentIndex)
+    }
+    
 }
 

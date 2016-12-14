@@ -169,7 +169,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Z4-Zf-Kdz">
                                 <rect key="frame" x="226" y="159" width="64" height="30"/>
@@ -178,13 +178,30 @@
                                 <state key="normal" title="Set Tip">
                                     <color key="titleColor" red="0.9673948403" green="0.97528753459999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tapSetTips:" destination="ghV-u4-pWR" eventType="touchUpInside" id="uxB-Pc-JlN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Xhh-PF-l1U" appends="YES" id="NDb-Y7-s5k"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="9VT-9S-p3a"/>
+                    <connections>
+                        <outlet property="adjustableTipsBAr" destination="uV8-wO-qyo" id="mxd-Dn-hz7"/>
+                        <outlet property="setting" destination="qsC-iW-dCd" id="Jj1-20-vij"/>
+                        <outlet property="tipsInput" destination="ZWA-1I-oog" id="0az-rB-nby"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBN-hI-7z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Xhh-PF-l1U">
+                    <connections>
+                        <action selector="onTapSetting:" destination="ghV-u4-pWR" id="qBQ-Wh-g4e"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1095" y="152"/>
         </scene>
