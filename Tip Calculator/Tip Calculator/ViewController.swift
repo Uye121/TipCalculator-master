@@ -49,9 +49,13 @@ class ViewController: UIViewController {
             
             tipPercentages[Int(index!)] = Double(value)/100
             tipsBar.setTitle("\(Int(value))%", forSegmentAt: Int(index!))
-            print("\(value)%")
             return
         }
+        
+        let index = Int(defaults.string(forKey: "selectedIndex")!)
+        let value = Double(defaults.string(forKey: "changeTip")!)!
+        
+        adjustableTipsBAr.setTitle("\(Int(value))%", forSegmentAt: Int(index!))
     }
     
     override func didReceiveMemoryWarning() {
