@@ -20,8 +20,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
-- [x] Text field that allows user to 
+- [x] Text field that allows user to set tip percent manually
+- [x] Find the total per person depending on number of people
+- [x] Slider that let user control the background color
+- [x] Remember previous user background color
 
 ## Video Walkthrough 
 
@@ -34,6 +36,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+I had very limited experience with iOS app development. Controlling what to 
+display on the different UIViews and make sure the changes I want are displayed
+correctly in the different views was very challenging for me. I also had trouble 
+making the gif because I never made any gif before and was a bit confused about 
+how to make them.
 
 ## License
 
