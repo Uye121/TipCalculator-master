@@ -18,7 +18,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var userInput: UITextField!
     @IBOutlet weak var tipsInput: UITextField!
     @IBOutlet weak var peopleInput: UITextField!
+    @IBOutlet weak var redSlider: UISlider!
+    @IBOutlet weak var greenSlider: UISlider!
+    @IBOutlet weak var blueSlider: UISlider!
     @IBOutlet var setting: UIView!
+    @IBOutlet var mainView: UIView!
+    
+    var redValue: CGFloat = 0.0
+    var greenValue: CGFloat = 0.0
+    var blueValue: CGFloat = 0.0
+    var opacityValue: CGFloat = 1.0
     
     var tipPercentages: [Double] = [0.18, 0.20, 0.25]
     var bill: Double?
@@ -37,11 +46,14 @@ class ViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view, typically from a nib.
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        var red: Float = 0.5
+        var green: Float = 0.5
+        var blue: Float = 0.5
         
         guard (setting) != nil else {
             let index = Int(defaults.string(forKey: "selectedIndex")!)
@@ -49,6 +61,20 @@ class ViewController: UIViewController {
             
             tipPercentages[Int(index!)] = Double(value)/100
             tipsBar.setTitle("\(Int(value))%", forSegmentAt: Int(index!))
+            
+            // Change color
+            if defaults.string(forKey: "red") != nil {
+                red = Float(defaults.string(forKey: "red")!)!
+                green = Float(defaults.string(forKey: "green")!)!
+                blue = Float(defaults.string(forKey: "blue")!)!
+            } else {
+                red = 0.5
+                green = 0.5
+                blue = 0.5
+            }
+            
+            print("red: \(red), green: \(green), blue: \(blue)")
+            mainView.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(opacityValue))
             return
         }
         
@@ -56,6 +82,23 @@ class ViewController: UIViewController {
         let value = Double(defaults.string(forKey: "changeTip")!)!
         
         adjustableTipsBAr.setTitle("\(Int(value))%", forSegmentAt: Int(index!))
+        
+        // Change color
+        if defaults.string(forKey: "red") != nil {
+            red = Float(defaults.string(forKey: "red")!)!
+            green = Float(defaults.string(forKey: "green")!)!
+            blue = Float(defaults.string(forKey: "blue")!)!
+        } else {
+            red = 0.5
+            green = 0.5
+            blue = 0.5
+        }
+
+        redSlider.value = red
+        greenSlider.value = green
+        blueSlider.value = blue
+        print("red: \(red), green: \(green), blue: \(blue)")
+        setting.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(opacityValue))
     }
     
     override func didReceiveMemoryWarning() {
@@ -122,6 +165,27 @@ class ViewController: UIViewController {
         defaults.set(adjustableTipsBAr.selectedSegmentIndex, forKey: "selectedIndex")
         defaults.set(tipAdjustAmount, forKey: "changeTip")
         
+    }
+    
+    @IBAction func changeRed(_ sender: Any) {
+        redValue = CGFloat(redSlider.value)
+        
+        setting.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: opacityValue)
+        defaults.set(redValue, forKey: "red")
+    }
+    
+    @IBAction func changeGreen(_ sender: Any) {
+        greenValue = CGFloat(greenSlider.value)
+        
+        setting.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: opacityValue)
+        defaults.set(greenValue, forKey: "green")
+    }
+    
+    @IBAction func changeBlue(_ sender: Any) {
+        blueValue = CGFloat(blueSlider.value)
+        
+        setting.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: opacityValue)
+        defaults.set(blueValue, forKey: "blue")
     }
     
 }

@@ -112,7 +112,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.039215686274509803" green="0.37647058823529411" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="UDV-8n-3ui" appends="YES" id="0X2-cn-XPY"/>
@@ -126,6 +127,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="gzO-PH-nUH"/>
                         <outlet property="peopleInput" destination="FU8-ax-FSr" id="xiG-yW-w31"/>
                         <outlet property="tipLabel" destination="nQL-g6-ADl" id="USr-6B-tXn"/>
                         <outlet property="tipsBar" destination="qHG-QZ-g3H" id="7X5-k7-x17"/>
@@ -182,8 +184,40 @@
                                     <action selector="tapSetTips:" destination="ghV-u4-pWR" eventType="touchUpInside" id="uxB-Pc-JlN"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="zcE-iO-78C">
+                                <rect key="frame" x="14" y="272" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeRed:" destination="ghV-u4-pWR" eventType="valueChanged" id="oWm-La-C5B"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="7Wq-ab-zyI">
+                                <rect key="frame" x="14" y="324" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeGreen:" destination="ghV-u4-pWR" eventType="valueChanged" id="alW-mn-ckO"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="9e1-j2-C8M">
+                                <rect key="frame" x="14" y="383" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeBlue:" destination="ghV-u4-pWR" eventType="valueChanged" id="oVD-hi-9sy"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="waY-ej-wDF">
+                                <rect key="frame" x="16" y="234" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.49866235256195068" green="0.49855220317840576" blue="0.49844229221343994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Xhh-PF-l1U" appends="YES" id="NDb-Y7-s5k"/>
@@ -192,6 +226,9 @@
                     <navigationItem key="navigationItem" title="Setting" id="9VT-9S-p3a"/>
                     <connections>
                         <outlet property="adjustableTipsBAr" destination="uV8-wO-qyo" id="mxd-Dn-hz7"/>
+                        <outlet property="blueSlider" destination="9e1-j2-C8M" id="Cr1-rh-KYd"/>
+                        <outlet property="greenSlider" destination="7Wq-ab-zyI" id="II1-ff-Btb"/>
+                        <outlet property="redSlider" destination="zcE-iO-78C" id="hfW-IA-tiI"/>
                         <outlet property="setting" destination="qsC-iW-dCd" id="Jj1-20-vij"/>
                         <outlet property="tipsInput" destination="ZWA-1I-oog" id="0az-rB-nby"/>
                     </connections>
