@@ -55,12 +55,20 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard (setting) != nil else {
-            let index = Int(defaults.string(forKey: "selectedIndex")!)
-            let value = Double(defaults.string(forKey: "changeTip")!)!
+        var index: Int = 0
+        var value: Double = 0.0
+        
+        if setting == nil {
+            if defaults.string(forKey: "selectedIndex") == nil {
+                index = 0
+                value = 18
+            } else {
+                index = Int(defaults.string(forKey: "selectedIndex")!)!
+                value = Double(defaults.string(forKey: "changeTip")!)!
+            }
             
-            tipPercentages[Int(index!)] = Double(value)/100
-            tipsBar.setTitle("\(Int(value))%", forSegmentAt: Int(index!))
+            tipPercentages[Int(index)] = Double(value)/100
+            tipsBar.setTitle("\(Int(value))%", forSegmentAt: Int(index))
             
             if defaults.string(forKey: "red") != nil {
                 red = Float(defaults.string(forKey: "red")!)!
@@ -76,10 +84,15 @@ class ViewController: UIViewController {
             return
         }
         
-        let index = Int(defaults.string(forKey: "selectedIndex")!)
-        let value = Double(defaults.string(forKey: "changeTip")!)!
+        if defaults.string(forKey: "selectedIndex") == nil {
+            index = 0
+            value = 18
+        } else {
+            index = Int(defaults.string(forKey: "selectedIndex")!)!
+            value = Double(defaults.string(forKey: "changeTip")!)!
+        }
         
-        adjustableTipsBAr.setTitle("\(Int(value))%", forSegmentAt: Int(index!))
+        adjustableTipsBAr.setTitle("\(Int(value))%", forSegmentAt: Int(index))
         
         // Change color
         if defaults.string(forKey: "red") != nil {
@@ -91,7 +104,7 @@ class ViewController: UIViewController {
             green = 0.5
             blue = 0.5
         }
-
+        
         // Change the slider to corresponding value
         redSlider.value = red
         greenSlider.value = green
