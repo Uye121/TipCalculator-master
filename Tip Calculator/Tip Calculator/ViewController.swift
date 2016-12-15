@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     var blueValue: CGFloat = 0.0
     var opacityValue: CGFloat = 1.0
     
+    var red: Float = 0.5
+    var green: Float = 0.5
+    var blue: Float = 0.5
+    
     var tipPercentages: [Double] = [0.18, 0.20, 0.25]
     var bill: Double?
     var tip: Double?
@@ -51,10 +55,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        var red: Float = 0.5
-        var green: Float = 0.5
-        var blue: Float = 0.5
-        
         guard (setting) != nil else {
             let index = Int(defaults.string(forKey: "selectedIndex")!)
             let value = Double(defaults.string(forKey: "changeTip")!)!
@@ -73,7 +73,6 @@ class ViewController: UIViewController {
                 blue = 0.5
             }
             
-            print("red: \(red), green: \(green), blue: \(blue)")
             mainView.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(opacityValue))
             return
         }
@@ -97,7 +96,6 @@ class ViewController: UIViewController {
         redSlider.value = red
         greenSlider.value = green
         blueSlider.value = blue
-        print("red: \(red), green: \(green), blue: \(blue)")
         setting.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(opacityValue))
     }
     
@@ -169,22 +167,34 @@ class ViewController: UIViewController {
     
     @IBAction func changeRed(_ sender: Any) {
         redValue = CGFloat(redSlider.value)
-        
-        setting.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: opacityValue)
-        defaults.set(redValue, forKey: "red")
-    }
-    
-    @IBAction func changeGreen(_ sender: Any) {
         greenValue = CGFloat(greenSlider.value)
-        
-        setting.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: opacityValue)
-        defaults.set(greenValue, forKey: "green")
-    }
-    
-    @IBAction func changeBlue(_ sender: Any) {
         blueValue = CGFloat(blueSlider.value)
         
         setting.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: opacityValue)
+        defaults.set(redValue, forKey: "red")
+        defaults.set(greenValue, forKey: "green")
+        defaults.set(blueValue, forKey: "blue")
+    }
+    
+    @IBAction func changeGreen(_ sender: Any) {
+        redValue = CGFloat(redSlider.value)
+        greenValue = CGFloat(greenSlider.value)
+        blueValue = CGFloat(blueSlider.value)
+        
+        setting.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: opacityValue)
+        defaults.set(redValue, forKey: "red")
+        defaults.set(greenValue, forKey: "green")
+        defaults.set(blueValue, forKey: "blue")
+    }
+    
+    @IBAction func changeBlue(_ sender: Any) {
+        redValue = CGFloat(redSlider.value)
+        greenValue = CGFloat(greenSlider.value)
+        blueValue = CGFloat(blueSlider.value)
+        
+        setting.backgroundColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: opacityValue)
+        defaults.set(redValue, forKey: "red")
+        defaults.set(greenValue, forKey: "green")
         defaults.set(blueValue, forKey: "blue")
     }
     
