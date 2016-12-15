@@ -62,7 +62,6 @@ class ViewController: UIViewController {
             tipPercentages[Int(index!)] = Double(value)/100
             tipsBar.setTitle("\(Int(value))%", forSegmentAt: Int(index!))
             
-            // Change color
             if defaults.string(forKey: "red") != nil {
                 red = Float(defaults.string(forKey: "red")!)!
                 green = Float(defaults.string(forKey: "green")!)!
@@ -93,6 +92,7 @@ class ViewController: UIViewController {
             blue = 0.5
         }
 
+        // Change the slider to corresponding value
         redSlider.value = red
         greenSlider.value = green
         blueSlider.value = blue
@@ -139,7 +139,7 @@ class ViewController: UIViewController {
     @IBAction func changePeople(_ sender: Any) {
         people = Int(peopleInput.text!) ?? 1
         
-        // Catch nil errors
+        // Catch nil error
         guard total != nil else {
             return
         }
@@ -160,11 +160,13 @@ class ViewController: UIViewController {
         tipPercentages[adjustableTipsBAr.selectedSegmentIndex] = Double(tipAdjustAmount)
         adjustableTipsBAr.setTitle(String("\(tipAdjustAmount)%"), forSegmentAt: adjustableTipsBAr.selectedSegmentIndex)
         
+        // Save the index selected and the amount the tip is changed to at that index
         defaults.set(adjustableTipsBAr.selectedSegmentIndex, forKey: "selectedIndex")
         defaults.set(tipAdjustAmount, forKey: "changeTip")
         
     }
     
+    // Change colors of the background
     @IBAction func changeRed(_ sender: Any) {
         redValue = CGFloat(redSlider.value)
         greenValue = CGFloat(greenSlider.value)
